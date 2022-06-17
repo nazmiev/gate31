@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>gate31: тестовое задание. запрос + отрисовка</title>
+</head>
+
+<body>
+    <div id="container" class="cont"></div>
+    <script>
+        var cont = document.getElementById("container");
+        var request = new XMLHttpRequest();
+        request.open('GET', 'https://jsonplaceholder.typicode.com/posts/?_start=0&_limit=7', true);
+
+        request.onload = function () {
+            if (this.status >= 200 && this.status < 400) {
+                var data = JSON.parse(this.response);
+                data.forEach(element => {
+                    var newDiv = document.createElement("div");
+                    newDiv.classList.add("box");
+                    newDiv.innerHTML = "<h3>" + element.title + "</h3>";
+                    newDiv.append(element.body);
+                    newDiv.innerHTML += "<input type='checkbox'>";
+                    
+                    
+                    cont.append(newDiv);
+                });
+            }
+        };
+
+        request.send();
+    </script>
+
+    <style>
+        .box {
+            border: 1px solid;
+            width: 300px;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .box h3 {
+            margin: 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+        }
+
+        .cont {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .checked {
+            color: white;
+            background-color: #675c5c;
+        }
+
+    </style>
+</body>
+
+</html>
