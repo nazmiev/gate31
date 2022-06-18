@@ -22,8 +22,7 @@
                     newDiv.innerHTML = "<h3>" + element.title + "</h3>";
                     newDiv.append(element.body);
                     newDiv.innerHTML += "<input type='checkbox'>";
-                    
-                    
+
                     cont.append(newDiv);
                 });
             }
@@ -38,14 +37,14 @@
             width: 300px;
             padding: 10px;
             box-sizing: border-box;
-            overflow: hidden;
         }
 
         .box h3 {
             margin: 0;
-            text-overflow: ellipsis;
             white-space: nowrap;
-            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            
         }
 
         .cont {
@@ -58,7 +57,6 @@
             color: white;
             background-color: #675c5c;
         }
-
     </style>
 </body>
 
