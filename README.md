@@ -1,2 +1,7 @@
 # gate31
-тестовое задание. запрос + отрисовка
+Test task. <br>
+<br>
+Request + render<br>
+<br>
+https://nazmiev.github.io/gate31/
+
