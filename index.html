@@ -20,21 +20,22 @@
                     var newDiv = document.createElement("div");
                     newDiv.classList.add("box");
                     newDiv.innerHTML = "<h3>" + element.title + "</h3>";
+                    // newDiv.innerHTML += "<p>" + element.body + "</p>";
                     newDiv.append(element.body);
                     newDiv.innerHTML += "<input type='checkbox'>";
 
-                    var checkBoxes = document.querySelectorAll("input");
+                    cont.append(newDiv);
+                });
+
+                var checkBoxes = document.querySelectorAll("input");
                     checkBoxes.forEach(checkBox => {
-                        checkBox.addEventListener('click', function () {
-                            console.log("1");
+                        checkBox.addEventListener("click", function () {
                             // checkBox.classList.toggle("checked");
                             // this.parentNode.classList.toggle("checked");
                             checkBox.parentNode.classList.toggle("checked");
+                            console.log("1")
                         })
                     })
-
-                    cont.append(newDiv);
-                });
             }
         };
 
@@ -55,7 +56,6 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-
         }
 
         .cont {
